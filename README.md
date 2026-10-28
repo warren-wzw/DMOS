@@ -51,6 +51,3 @@ Publication venue, year, and DOI are not confirmed in the supplied manuscript. T
 }
 ```
 
-## Source notes
-
-The supplied manuscript uses DMOS for the dataset and DAOS / DOSMG for the segmentation framework. This repository uses **DMOS** as the project name; original labels in extracted paper figures and the PDF are preserved.
