@@ -1,0 +1,2 @@
+# Keep manuscript PDFs local; do not publish them with the website.
+/docs/*.pdf

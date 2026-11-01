@@ -2,51 +2,54 @@
 
 ## A Dual-Modal Visible and Near-Infrared Imaging System for Ocular Surface Analysis
 
-DMOS brings together portable visible and near-infrared imaging, a paired ocular surface dataset, and anatomy-aware multimodal segmentation for quantitative eyelid and meibomian gland analysis.
+DMOS brings together a handheld RGB–NIR imaging and analysis system, a paired ocular surface dataset, and the Dual-Modal Asymmetric Ocular Segmentation (DAOS) framework for quantitative eyelid and meibomian gland analysis.
 
-**Zhiwei Wang†, Meilu Zhu†, Yuxing Li*, Allie Lee, Edmund Y. Lam***  
-† Equal contribution. * Corresponding authors as marked in the manuscript.
+**Zhiwei Wang<sup>†</sup>, Meilu Zhu<sup>†</sup>, Allie Lee, Yuxing Li<sup>*</sup>, Edmund Y. Lam<sup>*</sup>**
+
+† Equal contribution. Corresponding authors: Yuxing Li and Edmund Y. Lam (marked with *).
 
 The University of Hong Kong · Zhejiang University of Technology
 
-[Project page source](docs/index.html) · [Paper (PDF)](docs/DMOS.pdf)
+[Project page source](docs/index.html)
 
 ![DMOS imaging system and segmentation architecture](docs/assets/dmos-system.png)
 
 ## Overview
 
-- **Dual-modal acquisition:** a shared optical path with visible and 850 nm near-infrared illumination; approximately 150 ms between modalities.
-- **Asymmetric fusion:** RGB-dominant eyelid features and NIR-dominant gland features interact through task-aware residual modulation.
-- **Anatomy-guided segmentation:** eyelid ROI refinement, high-resolution gland injection, and Gland-Gap Convolution preserve fine gland structures and separation.
+- **Dual-modal acquisition:** a shared optical path with visible and 850 nm near-infrared illumination; approximately 150 ms between modalities, with integrated edge computing and result visualization.
+- **Asymmetric fusion:** RGB-dominant eyelid features and NIR-dominant gland features interact through task-aware residual modulation (TRM) in DAOS.
+- **Anatomy-guided segmentation:** eyelid ROI refinement, high-resolution gland injection, and Gland-Gap Convolution (G²Conv) use adaptive curvilinear sampling and gap supervision to preserve fine gland structures and separation.
 - **Quantitative analysis:** the MG ratio is the segmented gland area divided by the segmented eyelid area.
 
 ## DMOS dataset
 
-Dual-Modal Ocular Surface (DMOS) contains **510 paired RGB–NIR images from 110 ocular samples**, with pixel-level eyelid and meibomian gland annotations. The manuscript uses a subject-wise 8:2 training/test split.
+DMOS contains **510 RGB–NIR image pairs from 110 eyes**, with pixel-level **eyelid and meibomian gland annotations**.
 
-Dataset download and model code are not included in this repository. Release links will be added when available.
+![DMOS dataset of paired RGB and NIR ocular images](docs/assets/DMOS.png)
 
 ## Results
 
-Reported results from the supplied manuscript (mean ± standard deviation, %):
+DAOS results from the manuscript (mean ± standard deviation over three random seeds: 0, 1, and 2; %):
 
 | Dataset | Eyelid Dice | MG Dice | clDice | detF1 |
 | --- | --- | --- | --- | --- |
 | DMOS | 94.567 ± 0.050 | 77.650 ± 0.098 | 85.277 ± 0.108 | 56.573 ± 1.133 |
 | MGD1K | 97.430 ± 0.053 | 83.150 ± 0.040 | 91.540 ± 0.066 | 41.273 ± 0.070 |
 
+On DMOS, DAOS improves MG Dice and clDice over the strongest multimodal fusion baseline by 2.350 and 2.354 percentage points, respectively. For MGD1K, the same image is fed into both encoders to evaluate single-modality segmentation.
+
 ![Qualitative segmentation comparison on DMOS](docs/assets/dmos-results.png)
 
-The model has 8.78M parameters and 59.72 GFLOPs at 448 × 896 input resolution. The manuscript reports 14.06 ms inference time in its GPU evaluation setup; this is not an on-device timing claim.
+The figure retains the label “DOSMG” used in the manuscript artwork; the framework is named DAOS in the text.
+
+DAOS has 8.78M parameters and 59.72 GFLOPs at 448 × 896 input resolution. The manuscript reports 14.06 ms inference time in its NVIDIA L40S GPU evaluation setup; this is not an on-device timing claim.
 
 ## Citation
-
-Publication venue, year, and DOI are not confirmed in the supplied manuscript. This provisional entry avoids assuming publication status:
 
 ```bibtex
 @unpublished{wang_dmos,
   title = {A Dual-Modal Visible and Near-Infrared Imaging System for Ocular Surface Analysis},
-  author = {Wang, Zhiwei and Zhu, Meilu and Li, Yuxing and Lee, Allie and Lam, Edmund Y.},
+  author = {Wang, Zhiwei and Zhu, Meilu and Lee, Allie and Li, Yuxing and Lam, Edmund Y.},
   note = {Manuscript}
 }
 ```

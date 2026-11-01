@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="DMOS: dual-modal visible and near-infrared imaging for ocular surface analysis, with paired data and anatomy-aware segmentation.">
   <title>DMOS | Dual-Modal Ocular Surface Analysis</title>
-  <link rel="stylesheet" href="assets/style.css?v=20261028">
+  <link rel="stylesheet" href="assets/style.css?v=20261101-3">
   <script src="assets/main.js" defer></script>
 </head>
 <body>
@@ -16,34 +16,35 @@
       <h1>A Dual-Modal Visible and Near-Infrared Imaging System for Ocular Surface Analysis</h1>
       <p class="authors">
         <span>Zhiwei Wang<sup>1,2,†</sup></span><span>Meilu Zhu<sup>1,†</sup></span>
-        <span>Yuxing Li<sup>1,*</sup></span><span>Allie Lee<sup>3</sup></span><span>Edmund Y. Lam<sup>1,*</sup></span>
+        <span>Allie Lee<sup>3</sup></span><span>Yuxing Li<sup>1,*</sup></span><span>Edmund Y. Lam<sup>1,*</sup></span>
       </p>
       <div class="affiliations">
-        <p><sup>1</sup> Department of Electrical and Computer Engineering, The University of Hong Kong</p>
-        <p><sup>2</sup> College of Information Engineering, Zhejiang University of Technology</p>
-        <p><sup>3</sup> Department of Ophthalmology, LKS Faculty of Medicine, The University of Hong Kong</p>
+        <div class="affiliation-row">
+          <span><sup>1</sup> Department of Electrical and Computer Engineering, The University of Hong Kong</span>
+          <img src="assets/hku.jpg" class="affiliation-logo" width="38" height="38" alt="The University of Hong Kong">
+        </div>
+        <div class="affiliation-row">
+          <span><sup>2</sup> College of Information Engineering, Zhejiang University of Technology</span>
+          <img src="assets/zjut.jpg" class="affiliation-logo" width="38" height="38" alt="Zhejiang University of Technology">
+        </div>
+        <div class="affiliation-row">
+          <span><sup>3</sup> Department of Ophthalmology, LKS Faculty of Medicine, The University of Hong Kong</span>
+          <img src="assets/hku.jpg" class="affiliation-logo" width="38" height="38" alt="The University of Hong Kong">
+        </div>
       </div>
       <p class="author-note">† Equal contribution &nbsp; * Corresponding authors</p>
       <div class="buttons">
-        <a class="button primary" href="DMOS.pdf">Read the Paper ↗</a>
+        <span class="button primary" role="link" aria-disabled="true">Paper</span>
         <a class="button" href="#dataset">Dataset</a>
         <a class="button" href="#results">Results</a>
         <a class="button" href="#citation">Citation</a>
       </div>
-      <p class="release-note">Model code and dataset download links will be added when available.</p>
     </div>
   </section>
   <section class="section compact">
     <div class="container">
       <figure><img class="main-figure" src="assets/dmos-system.png" width="1160" height="720" alt="Portable RGB–NIR acquisition device and asymmetric dual-branch segmentation architecture">
-      <figcaption>From paired visible and near-infrared acquisition to eyelid and meibomian gland segmentation.</figcaption></figure>
-    </div>
-  </section>
-  <section class="section">
-    <div class="container narrow">
-      <h2>Overview</h2>
-      <p class="lead">DMOS brings together portable visible and near-infrared imaging, a paired ocular surface dataset, and anatomy-aware multimodal segmentation for quantitative eyelid and meibomian gland analysis.</p>
-      <p>Visible images capture color, texture, and eyelid boundaries, while near-infrared images reveal meibomian gland morphology. The system combines these complementary cues through task-specific feature fusion and anatomy-guided local refinement. Segmented gland and eyelid areas support quantitative MG ratio estimation.</p>
+      </figure>
     </div>
   </section>
   <section class="section tinted">
@@ -51,32 +52,32 @@
       <h2>Imaging &amp; Segmentation</h2>
       <div class="feature-grid">
         <article class="card"><span class="step">01 / ACQUIRE</span><h3>Shared optical path</h3><p>A portable device switches visible and 850 nm NIR illumination and filters, capturing paired images approximately 150 ms apart.</p></article>
-        <article class="card"><span class="step">02 / FUSE</span><h3>Task-aware representations</h3><p>Asymmetric residual modulation combines RGB-dominant eyelid features with NIR-dominant gland features.</p></article>
-        <article class="card"><span class="step">03 / REFINE</span><h3>Anatomy-guided detail</h3><p>Eyelid ROI processing, high-resolution gland injection, and Gland-Gap Convolution help preserve elongated glands and their separation.</p></article>
+        <article class="card"><span class="step">02 / FUSE</span><h3>Task-aware representations</h3><p>Task-aware residual modulation (TRM) in DAOS combines RGB-dominant eyelid features with NIR-dominant gland features.</p></article>
+        <article class="card"><span class="step">03 / REFINE</span><h3>Anatomy-guided detail</h3><p>Eyelid ROI processing, high-resolution gland injection, and Gland-Gap Convolution (G<sup>2</sup>Conv) combine global context, adaptive curvilinear sampling, and gap supervision to preserve gland continuity and separation.</p></article>
       </div>
     </div>
   </section>
   <section id="dataset" class="section">
     <div class="container narrow">
       <h2>The DMOS Dataset</h2>
-      <div class="stats"><div><strong>510</strong><span>RGB–NIR image pairs</span></div><div><strong>110</strong><span>Ocular samples</span></div><div><strong>8:2</strong><span>Subject-wise train/test split</span></div></div>
-      <p>Dual-Modal Ocular Surface (DMOS) pairs visible and near-infrared images with pixel-level annotations of eyelids and meibomian glands. Image pairs undergo alignment checks, fine registration, and manual screening. SAM 2-assisted annotations are manually verified and refined.</p>
-      <p class="muted">Dataset download: release link pending.</p>
+      <figure><img class="main-figure" src="assets/DMOS.png" width="2172" height="567" loading="lazy" alt="DMOS lettering formed from ocular images, with a central eye showing visible and near-infrared views">
+      </figure>
+      <div class="stats"><div><strong>510</strong><span>RGB–NIR image pairs</span></div><div><strong>110</strong><span>Eyes</span></div><div><strong>2</strong><span>Eyelid &amp; gland annotations</span></div></div>
     </div>
   </section>
   <section id="results" class="section tinted">
     <div class="container">
       <h2>Segmentation Results</h2>
-      <p class="caption">Results reported in the supplied manuscript. Values are mean ± standard deviation (%).</p>
+      <p class="caption">DAOS results reported in the manuscript. Values are mean ± standard deviation over three random seeds (0, 1, and 2), in %.</p>
       <div class="table-wrap"><table>
-        <caption class="sr-only">Proposed model performance on DMOS and MGD1K</caption>
+        <caption class="sr-only">DAOS performance on DMOS and MGD1K</caption>
         <thead><tr><th scope="col">Dataset</th><th scope="col">Eyelid Dice ↑</th><th scope="col">MG Dice ↑</th><th scope="col">clDice ↑</th><th scope="col">detF1 ↑</th></tr></thead>
         <tbody><tr><th scope="row">DMOS</th><td>94.567 ± 0.050</td><td>77.650 ± 0.098</td><td>85.277 ± 0.108</td><td>56.573 ± 1.133</td></tr>
         <tr><th scope="row">MGD1K</th><td>97.430 ± 0.053</td><td>83.150 ± 0.040</td><td>91.540 ± 0.066</td><td>41.273 ± 0.070</td></tr></tbody>
       </table></div>
+      <p class="caption">On DMOS, DAOS improves MG Dice and clDice over the strongest multimodal fusion baseline by 2.350 and 2.354 percentage points, respectively. For MGD1K, the same image is fed into both encoders to evaluate single-modality segmentation.</p>
       <figure><img class="main-figure" src="assets/dmos-results.png" width="1170" height="485" loading="lazy" alt="Two DMOS examples comparing eyelid and gland segmentation against baselines and ground truth">
-      <figcaption>Qualitative comparison on DMOS. Gray indicates eyelid regions; white indicates meibomian glands. Original model labels from the manuscript are retained.</figcaption></figure>
-      <p class="caption">8.78M parameters · 59.72 GFLOPs · 448 × 896 input. The reported 14.06 ms inference time refers to the paper's GPU evaluation setup.</p>
+      </figure>
     </div>
   </section>
   <section id="citation" class="section">
@@ -86,7 +87,7 @@
       <div class="code-box"><button id="copyBib" class="copy-button" type="button" aria-label="Copy BibTeX citation">Copy</button>
       <pre id="bibtex"><code>@unpublished{wang_dmos,
   title = {A Dual-Modal Visible and Near-Infrared Imaging System for Ocular Surface Analysis},
-  author = {Wang, Zhiwei and Zhu, Meilu and Li, Yuxing and Lee, Allie and Lam, Edmund Y.},
+  author = {Wang, Zhiwei and Zhu, Meilu and Lee, Allie and Li, Yuxing and Lam, Edmund Y.},
   note = {Manuscript}
 }</code></pre></div>
       <p id="copy-status" class="muted" role="status" aria-live="polite"></p>
