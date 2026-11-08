@@ -4,16 +4,6 @@
 
 DMOS brings together a handheld RGB–NIR imaging and analysis system, a paired ocular surface dataset, and the Dual-Modal Asymmetric Ocular Segmentation (DAOS) framework for quantitative eyelid and meibomian gland analysis.
 
-**Zhiwei Wang<sup>1,2,†</sup>, Meilu Zhu<sup>1,†</sup>, Allie Lee<sup>3</sup>, Vincent Tam<sup>1</sup>, Yuxing Li<sup>1,*</sup>, Edmund Y. Lam<sup>1,*</sup>**
-
-† Equal contribution. Corresponding authors: Yuxing Li and Edmund Y. Lam (marked with *).
-
-<sup>1</sup> Department of Electrical and Computer Engineering, The University of Hong Kong<br>
-<sup>2</sup> College of Information Engineering, Zhejiang University of Technology<br>
-<sup>3</sup> Department of Ophthalmology, LKS Faculty of Medicine, The University of Hong Kong
-
-[Project page source](docs/index.html)
-
 ![DMOS imaging system and segmentation architecture](docs/assets/dmos-system.png)
 
 ## Overview
