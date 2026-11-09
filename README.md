@@ -1,6 +1,6 @@
 # DMOS
 
-## A Dual-Modal Visible and Near-Infrared Imaging System for Ocular Surface Analysis
+## A Dual-Modal Visible and Near-Infrared Imaging System for Meibomian Gland Analysis
 
 DMOS brings together a handheld RGB–NIR imaging and analysis system, a paired ocular surface dataset, and the Dual-Modal Asymmetric Ocular Segmentation (DAOS) framework for quantitative eyelid and meibomian gland analysis.
 
@@ -40,7 +40,7 @@ DAOS has 8.78M parameters and 59.72 GFLOPs at 448 × 896 input resolution. The m
 
 ```bibtex
 @unpublished{wang_dmos,
-  title = {A Dual-Modal Visible and Near-Infrared Imaging System for Ocular Surface Analysis},
+  title = {A Dual-Modal Visible and Near-Infrared Imaging System for Meibomian Gland Analysis},
   author = {Wang, Zhiwei and Zhu, Meilu and Lee, Allie and Tam, Vincent and Li, Yuxing and Lam, Edmund Y.},
   note = {Manuscript}
 }
