@@ -32,10 +32,6 @@ On DMOS, DAOS improves MG Dice and clDice over the strongest multimodal fusion b
 
 ![Qualitative segmentation comparison on DMOS](docs/assets/dmos-results.png)
 
-The figure retains the label “DOSMG” used in the manuscript artwork; the framework is named DAOS in the text.
-
-DAOS has 8.78M parameters and 59.72 GFLOPs at 448 × 896 input resolution. The manuscript reports 14.06 ms inference time in its NVIDIA L40S GPU evaluation setup; this is not an on-device timing claim.
-
 ## Citation
 
 ```bibtex
