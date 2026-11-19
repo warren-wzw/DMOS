@@ -34,7 +34,7 @@ On DMOS, DAOS improves MG Dice and clDice over the strongest multimodal fusion b
 
 ## Acknowledgement
 
-We sincerely thank our colleagues at the HKU ISL Lab for their generous support and helpful contributions throughout this project.
+We thank our colleagues at the HKU ISL Lab for their generous support and contributions to this project.
 
 ## Citation
 
