@@ -6,6 +6,7 @@
 .affiliation-row-text{grid-template-columns:minmax(0,auto)}
 .affiliations sup{font-size:.8rem;vertical-align:super}
 .affiliation-logo{display:block;width:38px;height:38px;object-fit:contain}
+.affiliation-logo.logo-lg{width:49px;height:49px}
 .system-overview{display:grid;grid-template-columns:minmax(0,.737fr) minmax(0,1fr);gap:20px;align-items:start}
 .system-overview figure{min-width:0}
 .system-overview .main-figure{height:clamp(260px,35vw,400px);object-fit:contain}
