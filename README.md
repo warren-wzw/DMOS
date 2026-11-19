@@ -32,6 +32,10 @@ On DMOS, DAOS improves MG Dice and clDice over the strongest multimodal fusion b
 
 ![Qualitative segmentation comparison on DMOS](docs/assets/dmos-results.png)
 
+## Acknowledgement
+
+We sincerely thank our colleagues at the HKU ISL Lab for their generous support and helpful contributions throughout this project.
+
 ## Citation
 
 ```bibtex
